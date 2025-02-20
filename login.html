@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body style="background-color: rgb(244,235,134)">
+    <nav class="navbar navbar navbar-expand-lg bg-body-tertiary">
+        <div class="navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text-secondary" aria-current="page" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-secondary" aria-current="page" href="register.html">Register</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="dropdown">
+            <img src="https://static.wikia.nocookie.net/niallhoran/images/e/e7/NiallHoran%2822%29.jpg"
+                class="rounded-circle" alt="Foto Profil" width="50" height="50">
+            <button class="btn dropdown-toggle" style="background-color: white; border: none" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Niall Horan
+            </button>
+            <ul class="dropdown-menu dropdown-menu-light">
+                <li><a class="dropdown-item" href="#">Setting</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="data">
+            <form style="margin: auto; margin-top: 80px; width: 40%; padding:30px; background-color: white; border-radius: 5px">
+                <h1 class="text-center" style="margin-bottom:20px;"><strong>LOGIN</strong></h1>
+                <div class="mb-3">
+                    <label for="exampleInputUsername" class="form-label"><strong>Username</strong></label>
+                    <input required type="text" class="form-control" id="usn"
+                        placeholder="Masukkan Username">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail" class="form-label"><strong>Email</strong></label>
+                    <input required type="email" class="form-control" id="email"
+                        placeholder="Masukkan Email">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword" class="form-label"><strong>Password</strong></label>
+                    <input required type="password" class="form-control" id="pwd"
+                        placeholder="Masukkan Password">
+                </div>
+                <div class="mb-3">
+                    <p class="text-center"><a class="text-success" onclick="forgot()" href="#">Forgot Password?</a></p>
+                </div>
+                <div class="d-grid gap-2">
+                    <button  type="button" class="btn btn-success" onclick="onSubmit()">Submit</button>
+                </div>
+            </form>
+
+            <script>
+                const uname = "KimCait";
+                const mail = "kimmicai@gmail.com";
+                const pass = "kim123";
+
+                const reloadPage = () => location.reload(); 
+
+                const forgot = () => alert(`Username Anda ${uname}, Email Anda ${mail}, dan Password Anda ${pass}`);
+            
+
+                const onSubmit = () => {
+                    const username = document.getElementById('usn').value;
+                    const email = document.getElementById('email').value;
+                    const password = document.getElementById('pwd').value;
+
+                    if (!username) {
+                        alert("Username tidak boleh kosong !");
+                        return;
+                    }else if(!email){
+                        alert("Email tidak boleh kosong !");
+                        return;
+                    }else if(!password){
+                        alert("Password tidak boleh kosong !");
+                        return;
+                    }
+
+                    if (username === uname && email === mail && password === pass) {
+                        alert("Selamat Anda Berhasil Login!");
+                        reloadPage();
+                    }else if(username !== uname){
+                        alert("Username tidak terdaftar !");
+                        reloadPage();
+                    }else if(email !== mail){
+                        alert("Email tidak terdaftar !");
+                        reloadPage();
+                    }else if(password !== pass){
+                        alert("Password salah !");
+                        reloadPage();
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
